@@ -1,0 +1,6 @@
+
+Student{ ID = 101, Firstname = Andi, Lastname = Hentschel, Course = IT, Age = 27 }
+Student{ ID = 102, Firstname = Günther, Lastname = Hopfen, Course = Landwirtschaft, Age = 22 }
+Student{ ID = 103, Firstname = Marcel, Lastname = Bruhn, Course = Technik, Age = 24 }
+Student{ ID = 104, Firstname = Steven, Lastname = Schwenzer, Course = IT, Age = 27 }
+Student{ ID = 105, Firstname = Andy, Lastname = Bischoff, Course = IT, Age = 40 }
