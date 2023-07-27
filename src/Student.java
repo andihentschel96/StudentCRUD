@@ -26,30 +26,6 @@ public class Student implements Serializable {
      private void setID(int id) {
          this.id = id;
      }
-     public String getFirst_Name() {
-         return first_Name;
-     }
-     public void setFirst_Name(String name) {
-         this.first_Name = name;
-     }
-     public String getLast_Name() {
-         return last_Name;
-     }
-     public void setLast_Name(String name) {
-         this.last_Name = name;
-     }
-     public String getCourse() {
-         return this.course;
-     }
-     public void setCourse(String course) {
-         this.course = course;
-     }
-     public int getAge() {
-         return this.age;
-     }
-     public void setAge(int age) {
-         this.age = age;
-     }
 
      // Methods
     @Override
