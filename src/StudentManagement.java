@@ -9,7 +9,7 @@ public class StudentManagement {
         list = new LinkedList<>();
     }
 
-    public void addStudent() throws IOException {
+    public void addStudent() {
         //User input to create new student
         Scanner input = new Scanner(System.in);
         System.out.println("Add a new Student.");
@@ -40,7 +40,7 @@ public class StudentManagement {
 
     public void updateStudent() {
         Scanner input = new Scanner(System.in);
-        Student s = null;
+        Student s;
         System.out.print("Type in Student ID: ");
         int choice = input.nextInt();
         int index = choice - 100;
@@ -60,7 +60,7 @@ public class StudentManagement {
             }
         }
     }
-    public void searchStudent() throws FileNotFoundException {
+    public void searchStudent() {
         Scanner input = new Scanner(System.in);
         System.out.print("Type in Student ID: ");
         int choice = input.nextInt();

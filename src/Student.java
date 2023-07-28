@@ -5,7 +5,7 @@ public class Student implements Serializable {
     private static int count = 100;
     private int id;
     private String first_Name, last_Name, course;
-    int age;
+    private int age;
 
     // Default Constructor
     public Student() {}
@@ -19,10 +19,7 @@ public class Student implements Serializable {
         this.age = age;
     }
 
-     // Getter and Setter
-     public int getID() {
-         return this.id;
-     }
+     // Setter for ID
      private void setID(int id) {
          this.id = id;
      }

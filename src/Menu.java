@@ -8,21 +8,25 @@ public class Menu {
         int choice;
         do {
             if (Login.verification()) {
-                Menu.menu();
-                choice = input.nextInt();
+                do {
+                    Menu.menu();
+                    choice = input.nextInt();
 
-                switch (choice) {
-                    case 1 -> m.addStudent();
-                    case 2 -> m.delStudent();
-                    case 3 -> m.updateStudent();
-                    case 4 -> m.searchStudent();
-                    case 9 -> {
-                        m.writeFile(m.list);
-                        System.out.println("\nThank you and see you later.\n");
-                        System.exit(0);
+                    switch (choice) {
+                        case 1 -> m.addStudent();
+                        case 2 -> m.delStudent();
+                        case 3 -> m.updateStudent();
+                        case 4 -> m.searchStudent();
+                        case 5 -> m.readAll();
+                        case 9 -> {
+                            m.writeFile(m.list);
+                            System.out.println("\nThank you and see you later.\n");
+                            System.exit(0);
+                        }
+                        default -> System.out.println("\nInvalid input.\n");
                     }
-                    default -> System.out.println("\nInvalid input.\n");
-                }
+                }while (true);
+
             } else {
                 System.out.println("Login failed.");
             }
@@ -35,6 +39,7 @@ public class Menu {
         System.out.println("2: Delete Student");
         System.out.println("3: Update Student");
         System.out.println("4: Search Student");
+        System.out.println("5: List all Students");
         System.out.println("9: Exit program");
         System.out.print("Enter your selection : ");
     }
