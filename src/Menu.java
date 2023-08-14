@@ -2,9 +2,11 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Menu {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        File file = new File("output.txt");
         Scanner input = new Scanner(System.in);
         StudentManagement m = new StudentManagement();
+        m.readObjects(file);
         int choice;
         do {
             if (Login.verification()) {
@@ -14,12 +16,16 @@ public class Menu {
 
                     switch (choice) {
                         case 1 -> m.addStudent();
-                        case 2 -> m.delStudent();
-                        case 3 -> m.updateStudent();
-                        case 4 -> m.searchStudent();
-                        case 5 -> m.readAll();
+                        case 2 -> m.addStudentViaID();
+                        case 3 -> m.delStudent();
+                        case 4 -> m.updateStudent();
+                        case 5 -> m.searchStudent();
+                        case 6 -> m.readAll();
                         case 9 -> {
-                            m.writeFile(m.list);
+                            if (file.exists()) {
+                                file.delete();
+                            }
+                            m.writeObjects(m.list);
                             System.out.println("\nThank you and see you later.\n");
                             System.exit(0);
                         }
@@ -36,10 +42,11 @@ public class Menu {
     public static void menu() {
         System.out.println("MENU");
         System.out.println("1: Add Student");
-        System.out.println("2: Delete Student");
-        System.out.println("3: Update Student");
-        System.out.println("4: Search Student");
-        System.out.println("5: List all Students");
+        System.out.println("2: Add a Student via ID");
+        System.out.println("3: Delete Student");
+        System.out.println("4: Update Student");
+        System.out.println("5: Search Student");
+        System.out.println("6: List all Students");
         System.out.println("9: Exit program");
         System.out.print("Enter your selection : ");
     }
