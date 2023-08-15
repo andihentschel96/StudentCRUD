@@ -3,7 +3,15 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class StudentManagement {
-    LinkedList<Student> list;
+    public LinkedList<Student> getList() {
+        return list;
+    }
+
+    public void setList(LinkedList<Student> list) {
+        this.list = list;
+    }
+
+    private LinkedList<Student> list;
 
 
     public StudentManagement() {
@@ -50,7 +58,6 @@ public class StudentManagement {
     }
 
     public void delStudent() {
-        Student s = null;
         Scanner input = new Scanner(System.in);
         System.out.print("Type in Student ID: ");
         int choice = input.nextInt();
@@ -59,14 +66,13 @@ public class StudentManagement {
             if (index == i) {
                 System.out.println("Student " + list.get(index).toString() + " will be deleted.");
                 list.remove(index);
-
             }
         }
     }
 
     public void updateStudent() {
         Scanner input = new Scanner(System.in);
-        Student s;
+        Student s = new Student();
         System.out.print("Type in Student ID: ");
         int choice = input.nextInt();
         int index = choice - 100;
@@ -81,7 +87,12 @@ public class StudentManagement {
                 String course = input.next();
                 System.out.print("Age: ");
                 int age = input.nextInt();
-                s = new Student(firstname, lastname, course, age);
+                s.setID(choice);
+                s.setFirst_Name(firstname);
+                s.setLast_Name(lastname);
+                s.setCourse(course);
+                s.setAge(age);
+
                 list.set(index, s);
             }
         }

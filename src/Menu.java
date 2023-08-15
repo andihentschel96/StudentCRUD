@@ -3,14 +3,18 @@ import java.util.Scanner;
 
 public class Menu {
     public static void main(String[] args) {
-        File file = new File("output.txt");
+        File students = new File("output.txt");
+        File books = new File("books.txt");
         Scanner input = new Scanner(System.in);
         StudentManagement m = new StudentManagement();
-        m.readObjects(file);
+        StudentLibrary sl = new StudentLibrary();
+        m.readObjects(students);
+        sl.readBookObjects(books);
         int choice;
         do {
             if (Login.verification()) {
                 do {
+                    sl.writeBookObjects(sl.allBooks);
                     Menu.menu();
                     choice = input.nextInt();
 
@@ -21,11 +25,9 @@ public class Menu {
                         case 4 -> m.updateStudent();
                         case 5 -> m.searchStudent();
                         case 6 -> m.readAll();
+                        case 7 -> sl.start();
                         case 9 -> {
-                            if (file.exists()) {
-                                file.delete();
-                            }
-                            m.writeObjects(m.list);
+                            m.writeObjects(m.getList());
                             System.out.println("\nThank you and see you later.\n");
                             System.exit(0);
                         }
@@ -47,6 +49,7 @@ public class Menu {
         System.out.println("4: Update Student");
         System.out.println("5: Search Student");
         System.out.println("6: List all Students");
+        System.out.println("7: Library Management");
         System.out.println("9: Exit program");
         System.out.print("Enter your selection : ");
     }

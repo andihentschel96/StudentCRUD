@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Login {
@@ -15,7 +16,7 @@ public class Login {
         } catch (FileNotFoundException e) {
             e.getStackTrace();
         }
-        while (scan.hasNext()) {
+        while (Objects.requireNonNull(scan).hasNext()) {
             username = scan.next();
             password = scan.next();
         }
@@ -25,10 +26,6 @@ public class Login {
         System.out.print("Password: ");
         String inputPassword = input.next();
 
-        if (inputUsername.equals(username) && inputPassword.equals(password)) {
-            return true;
-        } else {
-            return false;
-        }
+        return inputUsername.equals(username) && inputPassword.equals(password);
     }
 }
