@@ -27,7 +27,7 @@ public class Menu {
                         case 5 -> m.searchStudent();
                         case 6 -> m.readAll();
                         case 7 -> sl.start(m);
-                        case 8 -> m.addMembership();
+                        case 8 -> Login.changeLogin();
                         case 9 -> {
                             m.writeObjects(m.getList());
                             System.out.println("\nThank you and see you later.\n");
@@ -52,7 +52,7 @@ public class Menu {
         System.out.println("5: Search Student");
         System.out.println("6: List all Students");
         System.out.println("7: Library Management");
-        System.out.println("8: Add Library Membership");
+        System.out.println("8: Change Login");
         System.out.println("9: Save & exit program");
         System.out.print("Enter your selection : ");
     }
