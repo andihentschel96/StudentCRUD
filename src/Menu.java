@@ -27,12 +27,13 @@ public class Menu {
                         case 5 -> m.searchStudent();
                         case 6 -> m.readAll();
                         case 7 -> sl.start(m);
-                        case 8 -> Login.changeLogin();
+                        case 8 -> m.addMembership();
                         case 9 -> {
                             m.writeObjects(m.getList());
                             System.out.println("\nThank you and see you later.\n");
                             System.exit(0);
                         }
+                        case 0 -> Login.changeLogin();
                         default -> System.out.println("\nInvalid input.\n");
                     }
                 }while (true);
@@ -52,8 +53,9 @@ public class Menu {
         System.out.println("5: Search Student");
         System.out.println("6: List all Students");
         System.out.println("7: Library Management");
-        System.out.println("8: Change Login");
+        System.out.println("8: Add/Delete Library Membership");
         System.out.println("9: Save & exit program");
+        System.out.println("0: Change Login");
         System.out.print("Enter your selection : ");
     }
 }
