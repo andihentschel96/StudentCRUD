@@ -28,14 +28,8 @@ public class Book implements Serializable {
     public void setBookID(int id) {
         this.bookID = id;
     }
-    public String getBookTitle(Book b) {
-        return b.bookTitle;
-    }
     public void setBookTitle(String bt) {
         this.bookTitle = bt;
-    }
-    public String getAuthor(Book b) {
-        return b.author;
     }
     public void setAuthor(String a) {
         this.author = a;
@@ -49,6 +43,6 @@ public class Book implements Serializable {
 
     @Override
     public String toString() {
-        return "Book {" + "ID = " + this.bookID + ", Booktitle = " + this.bookTitle + ", Author = " + this.author + ", Membership needed = " + this.membershipNeeded +"}\n";
+        return "Book {" + "ID = " + this.bookID + ", BookTitle = " + this.bookTitle + ", Author = " + this.author + ", Membership needed = " + this.membershipNeeded +"}\n";
     }
 }
