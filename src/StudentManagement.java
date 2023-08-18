@@ -3,16 +3,12 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class StudentManagement {
+
+    private final LinkedList<Student> list;
+
     public LinkedList<Student> getList() {
         return list;
     }
-
-    public void setList(LinkedList<Student> list) {
-        this.list = list;
-    }
-
-    private LinkedList<Student> list;
-
 
     public StudentManagement() {
         list = new LinkedList<>();
@@ -76,7 +72,7 @@ public class StudentManagement {
 
     public void updateStudent() {
         Scanner input = new Scanner(System.in);
-        Student s = new Student();
+        Student student = new Student();
         System.out.print("Type in Student ID: ");
         int choice = input.nextInt();
         int index = choice - 100;
@@ -93,14 +89,14 @@ public class StudentManagement {
                 int age = input.nextInt();
                 System.out.print("Library Member (true/false): ");
                 boolean member = input.nextBoolean();
-                s.setID(choice);
-                s.setFirst_Name(firstname);
-                s.setLast_Name(lastname);
-                s.setCourse(course);
-                s.setAge(age);
-                s.setHasAccess(member);
+                student.setID(choice);
+                student.setFirst_Name(firstname);
+                student.setLast_Name(lastname);
+                student.setCourse(course);
+                student.setAge(age);
+                student.setHasAccess(member);
 
-                list.set(index, s);
+                list.set(index, student);
             }
         }
     }
@@ -151,8 +147,8 @@ public class StudentManagement {
         File file = new File("output.txt");
         try(FileOutputStream output = new FileOutputStream(file);
                 ObjectOutputStream objOut = new ObjectOutputStream(output)) {
-            for (Student s : ls) {
-                objOut.writeObject(new Student(s));
+            for (Student student : ls) {
+                objOut.writeObject(new Student(student));
             }
             objOut.flush();
         } catch (IOException e) {
@@ -164,8 +160,8 @@ public class StudentManagement {
             FileInputStream input = new FileInputStream(file);
             ObjectInputStream objIn = new ObjectInputStream(input);
             while (true) {
-                Student s = (Student) objIn.readObject();
-                list.add(new Student(s));
+                Student student = (Student) objIn.readObject();
+                list.add(new Student(student));
             }
         } catch (IOException | ClassNotFoundException e) {
             e.getStackTrace();

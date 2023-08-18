@@ -2,8 +2,6 @@ import java.io.*;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-import static java.util.Collections.*;
-
 public class StudentLibrary {
     LinkedList<Book> allBooks;
     LinkedList<Student> access;
@@ -14,7 +12,6 @@ public class StudentLibrary {
     }
 
     public void start(StudentManagement m) {
-        File file = new File("books.txt");
         Scanner input = new Scanner(System.in);
         boolean runMenu = true;
 
@@ -47,13 +44,13 @@ public class StudentLibrary {
     public void addBook() {
         Scanner input = new Scanner(System.in);
         System.out.println("Add a new Book.");
-        System.out.print("Booktitle: ");
+        System.out.print("BookTitle: ");
         String title = input.next();
         System.out.print("Author: ");
         String author = input.next();
         System.out.print("Membership needed (true/false): ");
-        boolean memNeeded = input.nextBoolean();
-        allBooks.add(new Book(title, author, memNeeded));
+        boolean membershipNeeded = input.nextBoolean();
+        allBooks.add(new Book(title, author, membershipNeeded));
     }
 
     public void readAll() {
@@ -64,7 +61,7 @@ public class StudentLibrary {
 
     public void updateBook() {
         Scanner input = new Scanner(System.in);
-        Book b = new Book();
+        Book book = new Book();
         System.out.print("Type in Book ID: ");
         int choice = input.nextInt();
         for (int i = 0; i < allBooks.size(); i++) {
@@ -76,12 +73,12 @@ public class StudentLibrary {
                 String author = input.next();
                 System.out.print("Membership needed (true/false): ");
                 boolean memNeeded = input.nextBoolean();
-                b.setBookID(choice);
-                b.setBookTitle(title);
-                b.setAuthor(author);
-                b.setMembershipNeeded(memNeeded);
+                book.setBookID(choice);
+                book.setBookTitle(title);
+                book.setAuthor(author);
+                book.setMembershipNeeded(memNeeded);
 
-                allBooks.set(choice, b);
+                allBooks.set(choice, book);
             }
         }
     }
@@ -92,17 +89,17 @@ public class StudentLibrary {
         Scanner input = new Scanner(System.in);
         System.out.print("Type in Book ID: ");
         int choice = input.nextInt();
-        for (Book b : allBooks) {
-            if (choice == b.getBookID(b)) {
-                for (Student s : allStudents) {
-                    if (s.getHasAccess(s) && b.getMembershipNeeded(b)) {
-                        System.out.println(s);
-                    } else if (!s.getHasAccess(s) && b.getMembershipNeeded(b)) {
+        for (Book book : allBooks) {
+            if (choice == book.getBookID(book)) {
+                for (Student student : allStudents) {
+                    if (student.getHasAccess(student) && book.getMembershipNeeded(book)) {
+                        System.out.println(student);
+                    } else if (!student.getHasAccess(student) && book.getMembershipNeeded(book)) {
                         System.out.println("Student is no Library Member");
-                    } else if (s.getHasAccess(s) && !b.getMembershipNeeded(b)) {
-                        System.out.println(s);
-                    } else if (!s.getHasAccess(s) && !b.getMembershipNeeded(b)) {
-                        System.out.println(s);
+                    } else if (student.getHasAccess(student) && !book.getMembershipNeeded(book)) {
+                        System.out.println(student);
+                    } else if (!student.getHasAccess(student) && !book.getMembershipNeeded(book)) {
+                        System.out.println(student);
                     }
                 }
             }
@@ -127,8 +124,8 @@ public class StudentLibrary {
             FileInputStream input = new FileInputStream(file);
             ObjectInputStream objIn = new ObjectInputStream(input);
             while (true) {
-                Book b = (Book) objIn.readObject();
-                allBooks.add(new Book(b));
+                Book book = (Book) objIn.readObject();
+                allBooks.add(new Book(book));
             }
         } catch (IOException | ClassNotFoundException e) {
             e.getStackTrace();

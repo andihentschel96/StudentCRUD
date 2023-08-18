@@ -39,7 +39,7 @@ public class Login {
 
     public static void changeLogin() {
         try {
-            File file = new File("login.txt");
+            File file = new File(FILE_NAME);
             if (file.delete()) {
                 ChangeLoginRequest changeLoginRequest = setInputsFromKeyboard();
                 updateCredentialsFile(file, changeLoginRequest.getNewUsername(), changeLoginRequest.getNewPassword());

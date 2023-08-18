@@ -10,16 +10,16 @@ public class Menu {
         File students = new File(STUDENT_FILE);
         File books = new File(BOOKS_FILE);
         Scanner input = new Scanner(System.in);
-        StudentManagement m = new StudentManagement();
-        StudentLibrary sl = new StudentLibrary();
-        m.readObjects(students);
-        sl.readBookObjects(books);
+        StudentManagement studentManagement = new StudentManagement();
+        StudentLibrary studentLibrary = new StudentLibrary();
+        studentManagement.readObjects(students);
+        studentLibrary.readBookObjects(books);
         while(true) {
             if (Login.verification()) {
                 do {
-                    sl.writeBookObjects(sl.allBooks);
+                    studentLibrary.writeBookObjects(studentLibrary.allBooks);
                     menu();
-                    performMenuOperations(input, m, sl);
+                    performMenuOperations(input, studentManagement, studentLibrary);
                 } while (true);
             } else {
                 System.out.println("Login failed.");

@@ -1,8 +1,8 @@
 
 public class ChangeLoginRequest {
 
-    private String newUsername;
-    private String newPassword;
+    private final String newUsername;
+    private final String newPassword;
 
     public ChangeLoginRequest(String newUsername, String newPassword) {
         this.newPassword = newPassword;
@@ -13,15 +13,9 @@ public class ChangeLoginRequest {
         return newUsername;
     }
 
-    public void setNewUsername(String newUsername) {
-        this.newUsername = newUsername;
-    }
-
     public String getNewPassword() {
         return newPassword;
     }
 
-    public void setNewPassword(String newPassword) {
-        this.newPassword = newPassword;
-    }
+
 }

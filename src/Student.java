@@ -30,38 +30,23 @@ public class Student implements Serializable {
     }
 
      // Getter and Setter
-    public int getID(Student s) {
-        return s.id;
-    }
      public void setID(int id) {
          this.id = id;
      }
-    public String getFirst_Name(Student s) {
-        return s.first_Name;
-    }
     public void setFirst_Name(String firstname) {
         this.first_Name = firstname;
-    }
-    public String getLast_Name(Student s) {
-        return s.last_Name;
     }
     public void setLast_Name(String lastname) {
         this.last_Name = lastname;
     }
-    public String getCourse(Student s) {
-        return s.course;
-    }
     public void setCourse(String course) {
         this.course = course;
-    }
-    public int getAge(Student s) {
-        return this.age;
     }
     public void setAge(int age) {
         this.age = age;
     }
     public boolean getHasAccess(Student s) {
-        return hasAccess;
+        return s.hasAccess;
     }
     public void setHasAccess(boolean hasAccess) {
         this.hasAccess = hasAccess;
